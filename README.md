@@ -13,6 +13,9 @@ pip install https://github.com/Mathias-Kreis/stepwise-regression/...
 To use the functionality of stepwise-regression you just have to import the main function Logitstep as follows:
 ```python
 from stepreg.stepreg import Logitstep
+
+# run function
+Logitstep(y,X,maxsteps=30,p=0.05,force=["intercept"],plot=True,early_stopping=True,patience=10,tol=0.001,verbosity=1)
 ```
 
 ## Example
