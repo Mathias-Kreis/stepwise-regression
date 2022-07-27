@@ -14,14 +14,14 @@ To use the functionality of stepwise-regression you just have to import the main
 ```python
 from stepreg.stepreg import Logitstep
 ```
-
-Having the function ready for action, just give it a try, but bear in mind that you prepare your date properly
+Here you can see the Logitstep function with input parameter:
 ```python
 Logitstep(y,X,maxsteps=30,p=0.05,force=["intercept"],plot=True,early_stopping=True,patience=10,tol=0.001,verbosity=1)
 ```
+Having the function ready for action, just give it a try, but bear in mind that you prepare your data properly.
 
 ## Example
-You can find an example in the main branch which models Fraud data that can be find on kaggle.
+You can find an example in the main branch which models Fraud data that can be find on kaggle. In particular you can find a possible data prepartion before running Logitstep.
 
 ## Remark
 The package is still under construction. I am thankful for hints and comments!
