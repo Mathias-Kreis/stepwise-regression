@@ -55,7 +55,7 @@ def EarlyStopping(lr_results,patience,tol,verbosity):
   
     return(step)
 
-def Logitstep(y,X,maxsteps,p=0.05,force=["intercept"],plot=False,early_stopping=False,patience=10,tol=0.001,verbosity=1):
+def Logitstep(y,X,maxsteps=30,p=0.05,force=["intercept"],plot=True,early_stopping=False,patience=10,tol=0.001,verbosity=1):
     """
     Logitstep fits a logistic regression model from statsmodel api in a forward stepwise fashion.
     By default an intercept is forced into the model. One can choose the significance level by p 
@@ -107,12 +107,13 @@ def Logitstep(y,X,maxsteps,p=0.05,force=["intercept"],plot=False,early_stopping=
         ----------
         Analogue to Logit Model in statsmodel.
         
+    3. final variable list
+        
      """
     
     warnings.simplefilter('ignore', ConvergenceWarning)
 
     # add intercept
-    # X.loc[:,'intercept'] = 1
     X=X.assign(intercept = 1)
     
     # initialize variable list
@@ -186,9 +187,6 @@ def Logitstep(y,X,maxsteps,p=0.05,force=["intercept"],plot=False,early_stopping=
 
     if 'logit_model' in locals():
         
-        # summary
-        print("Final variable list:",steplist)
-
         # to DataFrame
         logit_model_as_html = logit_model.summary().tables[1].as_html()
         logit_results = pd.read_html(logit_model_as_html, header=0, index_col=0)[0]
@@ -200,36 +198,39 @@ def Logitstep(y,X,maxsteps,p=0.05,force=["intercept"],plot=False,early_stopping=
         logit_results["AUC"] = AUC_per_step       
 
         logit_results=logit_results[["step","coef","std err", "z","P>|z|","lower conf","upper conf","AUC"]]
-        
-        # Output
-        print(logit_model.summary())   
-        
-        # Early Stopping            
+              
+        # Early Stopping  
+        steplist_orig=steplist
         if early_stopping:
             best_step=EarlyStopping(logit_results,patience,tol,verbosity)
+            steplist=steplist_orig[0:(startpoint+best_step)]
+            
+        # Output
+        print("Final variable list:",steplist)
+        print(logit_model.summary())      
         
         if plot:
             # plt.xkcd()
             AUC=logit_results.iloc[:,7]
             plt.rcParams['axes.facecolor'] = 'whitesmoke'
             fig,ax = plt.subplots()
-            ax.plot(steplist, AUC,zorder=5)
-            ax.scatter(steplist, AUC,zorder=10)
+            ax.plot(steplist_orig, AUC,zorder=5)
+            ax.scatter(steplist_orig, AUC,zorder=10)
             ax.grid(linestyle="-", linewidth=1, color='white')
             plt.ylabel('AUC',fontsize=10)
             plt.xlabel('variable',fontsize=10)
-            plt.xticks(steplist,fontsize=10,rotation = 60)
+            plt.xticks(steplist_orig,fontsize=10,rotation = 90)
             plt.yticks(fontsize=10)
             if early_stopping:
                 plt.axvline(x=best_step,linestyle="--",color='coral')
             plt.title('forward stepwise selection',fontsize=16)
             plt.savefig("D:/Projekte/03_sonstiges/Python/AUC_per_step.pdf",bbox_inches='tight', dpi=1000)
         
-        return(logit_results,logit_model)
+        return(logit_results,logit_model,steplist)
         
     else:
         logit_model="no significant variable in the data"
         logit_results=logit_model
         print(logit_model)
         
-        return(logit_results,logit_model)
+        return(logit_results,logit_model,steplist)
