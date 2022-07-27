@@ -16,7 +16,16 @@ from stepreg.stepreg import Logitstep
 ```
 Here you can see the Logitstep function with input parameter:
 ```python
-Logitstep(y,X,maxsteps=30,p=0.05,force=["intercept"],plot=True,early_stopping=True,patience=10,tol=0.001,verbosity=1)
+Logitstep(y,
+          X,
+          maxsteps=30,
+          p=0.05,
+          force=["intercept"],
+          plot=True,
+          early_stopping=True,
+          patience=10,
+          tol=0.001,
+          verbosity=1)
 ```
 Having the function ready for action, just give it a try, but bear in mind that you prepare your data properly.
 
