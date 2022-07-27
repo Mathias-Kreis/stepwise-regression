@@ -3,15 +3,15 @@ Stepwise regression fits a logistic regression model in which the choice of pred
 
 ![alt text](https://github.com/Mathias-Kreis/stepwise-regression/blob/main/stepwise_example.jpg?raw=true|width=50px)
 
-# Installation
-The package can be installed from GitHub:
-
+## Installation Instructions
+The package can be installed from GitHub using pip:
 ```python
-def some_func(a,                        # nothing fancy here, yet
+pip install https://github.com/Mathias-Kreis/stepwise-regression/...
+```
 
-              b: 'Annotation: '         # implicitly
-                 '"foo" for Foo, '      # concatenated
-                 '"bar" for Bar, '      # annotation
-                 '"other" otherwise'='otherwise'):
+## Getting started
+To use the functionality of stepwise-regression you just have to import the main function Logitstep as follows:
+```python
+from stepreg.stepreg import Logitstep
 ```
 
