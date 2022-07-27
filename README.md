@@ -29,7 +29,7 @@ Logitstep(
           verbosity=1
           )
 ```
-Having the function ready for action, just give it a try, but bear in mind that you prepare your data properly.
+The function returns three Objects: the model summary, a list of selected variables and the estimated model itself. Having the function ready for action, just give it a try, but bear in mind that you prepare your data properly.
 
 ## Example
 You can find an example in the main branch which models Fraud data that can be find on kaggle. In particular you can find a possible data prepartion before running Logitstep.
