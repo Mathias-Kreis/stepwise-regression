@@ -8,6 +8,11 @@ The package can be installed from GitHub using pip:
 ```python
 pip install https://github.com/Mathias-Kreis/stepwise-regression/stepwise-regression.zip
 ```
+If you have issues to install the package, it is possible to just download the package and navigate via anaconda prompt to the package location and install it with  
+```python
+pip install .
+```
+
 
 ## Getting started
 To use the functionality of stepwise-regression you just have to import the main function Logitstep as follows:
