@@ -6,7 +6,7 @@ Stepwise regression fits a logistic regression model in which the choice of pred
 ## Installation Instructions
 The package can be installed from GitHub using pip:
 ```python
-pip install https://github.com/Mathias-Kreis/stepwise-regression/...
+pip install https://github.com/Mathias-Kreis/stepwise-regression/stepwise-regression.zip
 ```
 
 ## Getting started
