@@ -8,7 +8,7 @@ The package can be installed from GitHub using pip:
 ```python
 pip install https://github.com/Mathias-Kreis/stepwise-regression/stepwise-regression.zip
 ```
-If you have issues to install the package, it is possible to just download the package and navigate via anaconda prompt to the package location and install it with  
+If you have issues to install the package, it is possible to just download stepwise-regression.zip and navigate via anaconda prompt to the unpacked package location and install it with  
 ```python
 pip install .
 ```
