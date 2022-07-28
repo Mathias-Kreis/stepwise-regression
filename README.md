@@ -37,7 +37,7 @@ logit_results, logit_model, steplist = Logitstep(
 The function returns three Objects: the model summary, the estimated model itself and a list of selected variables. Having the function ready for action, just give it a try, but bear in mind that you prepare your data properly.
 
 ## Example
-You can find an example in the main branch which models Fraud data that can be find on [kaggle](https://www.kaggle.com/datasets/volodymyrgavrysh/fraud-detection-bank-dataset-20k-records-binary). In particular you can find a possible data prepartion before running Logitstep.
+You can find an [example](https://github.com/Mathias-Kreis/stepwise-regression/tree/main/examples) in the main branch which models Fraud data that can be find on [kaggle](https://www.kaggle.com/datasets/volodymyrgavrysh/fraud-detection-bank-dataset-20k-records-binary). In particular you can find a possible data prepartion before running Logitstep.
 
 ## Remark
 The package is still under construction. I am thankful for hints and comments!
